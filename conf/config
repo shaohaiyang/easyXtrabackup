@@ -1,0 +1,12 @@
+#!/bin/bash
+MAX_SAVE=3
+LOCAL_DIR=/sqlbackup
+XTRA_BACKUP_BIN=/usr/bin/innobackupex
+QPRESS_BIN=/usr/bin/qpress
+RED="\033[31m"
+GREEN="\033[32m"
+COLOR_END="\033[0m"
+SENDMAIL="/usr/local/sbin/upyun_sendslack.py"
+LOCAL_HOST=$(/sbin/ifconfig | sed -r -n 's@.*inet (192.168.*) netmask.*@\1@gp'|sed 's/ //g')
+CPU_CORE_NUM=$(grep -c processor /proc/cpuinfo)
+CPU_CORE_NUM=$((CPU_CORE_NUM - 2))

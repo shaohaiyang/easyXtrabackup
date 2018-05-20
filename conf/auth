@@ -1,0 +1,4 @@
+DB_CONF=/etc/my.cnf
+DB_USER=root
+DB_PASSWD='xxxxxxx'
+DB_SOCKET=/tmp/mysql.sock
