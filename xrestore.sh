@@ -80,6 +80,13 @@ restore_backup_data(){
 
     echo "setup 5: copy back mysql data"
     $XTRA_BACKUP_BIN --copy-back $FULL_BACKUP_DIR > /dev/null 2>&1
+
+    echo "setup 6: check mysqlbinlog and import"
+    echo "cat $FULL_BACKUP_DIR/xtrabackup_binlog_info"
+    echo "mysqlbinlog --start-position=xxx mysql-bin.00000x > ./all.sql"
+    echo "mysql>SET SQL_LOG_BIN=0"
+    echo "mysql>source all.sql"
+    echo "mysql>SET SQL_LOG_BIN=1"
     echo -e $COLOR_END
 }
 
